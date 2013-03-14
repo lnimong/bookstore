@@ -1,0 +1,102 @@
+a{
+	cursor: pointer;
+}
+
+#headSearch {
+	padding: 4em 2em 0 2em;
+}
+
+#headSearch div{
+	display: inline-block;
+	margin-right: 2em;
+}
+
+#results {
+	padding: 0 2em;
+}
+
+#results .thumbnail img {
+	float: left;
+	margin: 0 0.5em;
+	margin-bottom: 1em;
+}
+
+#results .span4 .thumbnail h4 {
+	margin-top: 0;
+	margin-bottom: 0.2em;
+}
+
+#results .span8 .thumbnail h4 {
+	margin-top: 0;
+	font-size: 2em;
+	margin-bottom: 0.5em;
+	margin-right: 10px;
+	line-height: 1.2em;
+	text-align:right;
+}
+
+#results .span8 .thumbnail .format {
+	text-align:right;
+	margin-right: 10px;
+	margin-bottom: 1em;
+}
+
+#results .span8 .thumbnail p {
+	margin-right: 10px;
+}
+
+#results .thumbnail .actions {
+	text-align: center;
+	padding: 1.5em 0 0 0;
+}
+
+.price {
+	font-size: 1.6em;
+	margin-right: 2em;
+	font-weight: bold;
+	color: #aaa;
+}
+
+.book-desc {
+	display:block;
+	height:14.5em;
+	overflow-y: hidden;
+}
+
+.format {
+	font-weight: bold;
+	color: #aaa;
+	font-style: italic;
+}
+
+#mainnav .brand {
+	margin: 0;
+}
+
+#headSearch {
+	text-align: right;
+	padding-right: 80px;
+}
+
+.book-desc p {
+	text-align: justify;
+	margin-right: 0.5em;
+}
+
+.shop {
+	padding:0.7em;
+	margin-bottom:0.5em;
+	text-align:center;
+	font-size:2em;
+	font-weight:bold;
+}
+
+.thumbnail {
+	padding: 0;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;
+	border:none;
+	background: #fcfcfc;
+	padding-bottom: 4px
+}

@@ -1,0 +1,252 @@
+a{
+	cursor: pointer;
+}
+
+body {
+	font-family: "Segoe UI", "Segoe UI Web Regular", "Segoe UI Symbol", "Helvetica Neue", "BBAlpha Sans", "S60 Sans", Arial, "sans-serif"
+}
+
+.span2 {
+	width: 180px
+}
+
+.navbar-inner {
+	background: #555;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;
+	-webkit-box-shadow: 0 0 0 rgba(0,0,0,0);
+	-moz-box-shadow: 0 0 0 rgba(0,0,0,0);
+	box-shadow:0 0 0 rgba(0,0,0,0);
+	border: none;
+}
+
+.navbar .nav a {
+	color:#fff !important;
+	font-size: 1.3em;
+}
+
+.navbar .nav li a, .navbar .brand {
+	text-shadow: none;
+}
+
+.navbar .nav .active a{
+	color:#444 !important;
+	font-size: 1.3em;
+	background: #ccc;
+	font-weight: bold;
+}
+
+.thumbnail {
+	padding: 1em;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;
+	-webkit-box-shadow: 0 0 0 rgba(0,0,0,0);
+	-moz-box-shadow: 0 0 0 rgba(0,0,0,0);
+	box-shadow:0 0 0 rgba(0,0,0,0);
+	background: #fff;
+	padding-bottom: 4px;
+	text-align: left;
+}
+
+.desc-img {
+	overflow: hidden;
+	width: 150px; 
+	height: 230px;
+}
+
+
+.highlighted.desc-img {
+	border:#ddd solid 1px;
+	height: 228px;
+}
+
+.desc-img img {
+	width: 100%; 
+	height: 100%;
+}
+
+.desc-img div {
+	position: relative;
+	background: #fff;
+	top:-230px;
+	left:150px;
+	padding: 0.3em;
+	overflow: hidden;
+	width: 100%; 
+	height: 100%;
+}
+
+.thumbnail .price , .thumbnail .format{
+	margin-bottom:  0.5em 0 0 0.5em;
+	display: block;
+}
+
+.thumbnail .price {
+	color: #888;
+	font-weight: bold;
+}
+
+.court {
+	display: block;
+}
+
+.trescourt {
+	display: none;
+}
+
+.thumbnail .book-desc p {
+	text-align: justify;
+}
+
+.thumbnail .book-desc .details {
+	margin-left: 0.3em;
+}
+
+.thumbnail .shop {
+	padding: 1em 0;
+	width: 140px;
+	text-align: right;
+	font-weight: bold;
+	margin-top: 0.5em;
+}
+
+.thumbnail .shop span {
+	margin-right: 0.5em;
+	overflow: hidden;
+}
+
+.thumbnail h4 {
+	font-weight:normal;
+	margin:0;
+}
+
+.thumbnail .format {
+	font-weight: bold;
+	font-style: italic;
+}
+
+#headSearch {
+	padding: 4em 2em 0 2em;
+}
+
+#headSearch div{
+	display: inline-block;
+	margin-right: 2em;
+}
+
+#results {
+	padding: 0 130px 0 1em;
+	text-align: center;
+}
+
+.titrecache {
+	display: none;
+}
+
+
+@media (max-width: 979px) and (min-width: 768px) {
+		
+	#results {
+		padding: 0 80px 0 1em;
+		text-align: center;
+	}
+
+	.navbar-inner {
+		padding: 0;
+	}
+
+	.span2 {
+		width: 150px
+	}
+
+	.desc-img {
+		width: 120px; 
+		height: 180px;
+	}
+
+	.highlighted.desc-img {
+		border:#ddd solid 1px;
+		height: 178px;
+	}
+
+	.desc-img div {
+		top:-180px;
+	}
+
+	.details .court {
+		display: none;
+	}
+
+	.details .trescourt {
+		display: block;
+	}
+
+	.thumbnail .shop {
+		width: 100px;
+		overflow: hidden;
+	}
+
+
+	.thumbnail .book-desc {
+		height: auto;
+	}
+
+
+	.thumbnail .book-desc p {
+		display: none;
+	}
+
+}
+
+
+
+
+@media (max-width: 768px) {
+	
+	.span2 {
+		width: 100%;
+	}
+
+	.thumbnail.thread {
+		min-height: 200px;
+	}
+
+
+	#results {
+		padding: 0 1em;
+		text-align: center;
+	}
+
+	.highlighted.desc-img {
+		border:none;
+		height: 180px;
+	}
+
+	.desc-img div {
+		display: none;
+	}	
+
+	.desc-img {
+		width: 120px; 
+		height: 180px;
+		margin-right: 1em;
+		float: left;
+	}
+
+	.thumbnail .titre {
+		display: none;
+	}
+
+	.thumbnail em {
+		display: block;
+		margin-top:0.3em;
+	}
+
+
+
+}
+
+
+
