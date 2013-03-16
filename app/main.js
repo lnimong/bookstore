@@ -11,7 +11,9 @@ fs.readFile('./index.html', function (err, html) {
     }       
 
 	app.get('/', function(request, response) {
-	  response.send(html);
+        response.writeHeader(200, {"Content-Type": "text/html"});  
+        response.write(html);  
+        response.end();  
 	});
 
 
