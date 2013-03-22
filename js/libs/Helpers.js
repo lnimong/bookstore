@@ -1,7 +1,16 @@
-define({
-	forEach :  function (array, action) {
-		for(var i = 0; i <  array.length; ++i) {
-			action(array[i],i);
+define(['jquery'], function($) {
+
+	return {
+		trim : function(text) {
+			return $.trim(text);
+		},
+
+		apiUrl : window.location.protocol + window.location.host,
+		
+		forEach :  function (array, action) {
+			for(var i = 0; i <  array.length; ++i) {
+				action(array[i],i);
+			}
 		}
 	}
 })

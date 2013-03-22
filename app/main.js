@@ -8,7 +8,8 @@ app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/css'));
 
 app.get('/', function(request, response) {
-  response.render('index', { title: 'The index page!', text : __dirname })
+
+  response.end('hello world on ' + url.parse(req.url).pathname + ' again');
 });
 
 

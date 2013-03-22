@@ -1,4 +1,4 @@
-define(['knockout', 'FindBooks', 'ManageUI', 'Helpers'], function(ko, FindBooks, ui, easy){
+define(['knockout', 'Books', 'ManageUI', 'Helpers'], function(ko, FindBooks, ui, easy){
 
 
 	var SearchViewModel = function () {
@@ -18,9 +18,11 @@ define(['knockout', 'FindBooks', 'ManageUI', 'Helpers'], function(ko, FindBooks,
 				type: this.SearchType
 			}, function(books) {
 				self.SearchResults.removeAll();
-				for (var i = 0; i < books.length; i++) {
-					this.SearchResults.push(books[i]);
-				};
+				
+				easy.forEach(books, function(book) {
+					self.SearchResults.push(book)
+				});
+
 				ui.responseReceived();
 
 			}.bind(this));
