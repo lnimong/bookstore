@@ -5,7 +5,7 @@ define(['jquery'], function($) {
 			return $.trim(text);
 		},
 
-		apiUrl : window.location.protocol + window.location.host,
+		apiUrl : window.location.protocol + window.location.host + '/search',
 		
 		forEach :  function (array, action) {
 			for(var i = 0; i <  array.length; ++i) {

@@ -1,0 +1,18 @@
+#history {
+	width: 40%;
+	float: left;
+	margin-left:2em;
+	height: 80%;
+	overflow-y: scroll;
+	border-right:1px #ddd solid;
+}
+
+#output {
+	padding-left:2em;
+	height: 80%;
+	overflow-y: scroll;
+}
+
+#infos {
+	margin-top: 1em;
+}

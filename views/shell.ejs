@@ -1,0 +1,13 @@
+<script type="text/javascript">
+	require(['ShellViewModel']);
+</script>
+
+<form id="commandline" action=""><input style="width:100%" data-bind="value:CommandRequest" type="text"></form>
+<div id="infos">
+	<div id="history" data-bind="foreach:CommandsList" >
+		<div data-bind="text:commandLine, click:selectThis"></div>
+	</div>
+	<div id="output" data-bind="text:SelectedCommandOutput" ></div>
+</div>
+
+

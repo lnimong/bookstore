@@ -1,29 +1,31 @@
 var express = require('express');
 var fs = require('fs');
-var finder = require('./booksfinder');
+var pq = require('pg');
+var url = require('url');
+
+var actions = require('./actions');
+var easy = require('./helpers');
 
 var port = process.env.PORT || 5000;
-var app = express.createServer(express.logger());
-var setPublic = function (directories_) {
-	for(var i = 0; i < directories_.length; ++i)
-		app.use('/' + directories_[i], express.static(__dirname + '/' +  directories_[i]));
-};
-
+var app = easy.server(express, ['css', 'js', 'bootstrap'])
 app.set('view engine', 'ejs');
-setPublic(['css', 'js', 'bootstrap']);
 
 
 app.get('/search', function(request, response) {
 	console.log("new search request");
-	finder.findbooks(function(jsonres) {
-	 	response.writeHead(200, { 'Content-Type': 'application/json' });
-		response.write(JSON.stringify(jsonres));
-	 	response.end();
-	});
+	actions.Search(response);
 });
 
 app.get('/', function(request, response) {
-  response.render('index', { title: 'The index page!', text : __dirname })
+	actions.Index(response);
+});
+
+app.get('/admin/shell', function(request, response) {
+	actions.Shell(response);
+});
+
+app.get('/admin/shell/execute', function(request, response) {
+	actions.CommandLine(response, url.parse(request.url, true).query)
 });
 
 

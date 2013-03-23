@@ -34,11 +34,13 @@ define(['knockout', 'Books', 'ManageUI', 'Helpers'], function(ko, FindBooks, ui,
 		}
 	}
 
+	var viewmodel = new SearchViewModel ();
+
+
 	ui.whenSubmitSearch(function() {
 		viewmodel.Search();
 	});
-
-	var viewmodel = new SearchViewModel ();
+	
 	easy.forEach(ui.htmlElts(), function(elt) {
 		ko.applyBindings(viewmodel, elt)
 	});

@@ -1,6 +1,6 @@
 requirejs.config({
 
-	baseUrl : 'js/libs',
+	baseUrl : '/js/libs',
 
 	paths : {
 
