@@ -1,7 +1,6 @@
-var finder = require('./booksfinder');
-var pgConfig  = require('./pg-config');
 var actions = exports;
 
+var finder = require('./booksfinder');
 
 actions.Index = function(response) {
 	response.render('index')

@@ -151,6 +151,17 @@ body {
 	display: none;
 }
 
+.control-group {
+	width: 80% !important
+}
+
+.controls {
+	width: 100% !important;
+}
+
+input#requestinput {
+	width: 100% !important
+}
 
 @media (max-width: 979px) and (min-width: 768px) {
 		
