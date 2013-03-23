@@ -215,6 +215,12 @@ input#requestinput {
 		display: none;
 	}
 
+
+	#headSearch {
+		padding: 1em 2em 0 2em;
+	}
+
+
 }
 
 
@@ -259,6 +265,11 @@ input#requestinput {
 	.thumbnail em {
 		display: block;
 		margin-top:0.3em;
+	}
+
+
+	#headSearch {
+		padding: 1em 2em 0 2em;
 	}
 
 
