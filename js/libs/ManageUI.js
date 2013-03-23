@@ -10,7 +10,14 @@ define(['jquery', 'Animations'], function($, animate) {
 		},
 
 		htmlElts : function() {
-			return [ $('#headSearch')[0], $('#results')[0] ];
+			return [ $('#headSearch')[0], $('#results')[0], $('.navbar-inner')[0] ];
+		},
+
+		whenSubmitSearch : function(callback) {
+			$('#headSearch').submit(function () {
+				callback();
+				return false;
+			});
 		}
 	}
 })

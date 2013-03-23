@@ -4,10 +4,15 @@ define(['knockout', 'Books', 'ManageUI', 'Helpers'], function(ko, FindBooks, ui,
 	var SearchViewModel = function () {
 		var self = this;
 
-		self.SearchRequest =  ko.observable('requete');
+		self.SearchRequest =  ko.observable();
 		self.SearchCategory =  ko.observable();
 		self.SearchType =  ko.observable();
 		self.SearchResults = ko.observableArray();
+		self.SearchTitle = ko.computed(function () {
+			var search = this.SearchRequest ();
+			return   search === '' ? "Bienvenue sur ikaboo.fr" : 'Résultats de recherche pour ' + search;
+		}, self);
+
 		self.Search = function () {
 
 			ui.sendingRequest();
@@ -29,6 +34,9 @@ define(['knockout', 'Books', 'ManageUI', 'Helpers'], function(ko, FindBooks, ui,
 		}
 	}
 
+	ui.whenSubmitSearch(function() {
+		viewmodel.Search();
+	});
 
 	var viewmodel = new SearchViewModel ();
 	easy.forEach(ui.htmlElts(), function(elt) {

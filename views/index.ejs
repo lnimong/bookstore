@@ -1,109 +1,102 @@
 
-		<div id="mainnav" class="navbar navbar-fixed-top" >
-		  <div class="navbar-inner">
-		    <a class="brand">P</a>
-		    <ul class="nav">
-		      <li class="active"><a href="#">Home</a></li>
-		      <li><a>Link</a></li>
-		      <li><a>Link</a></li>
-		    </ul>
-		    <div class="nav">
-			  </div>
-		  </div>
-		</div>
+<div id="mainnav" class="navbar navbar-fixed-top" >
+  <div class="navbar-inner">
+    <a class="brand" data-bind="text:SearchTitle"></a>
+  </div>
+</div>
 
-		<script type="text/javascript">
-			require(['SearchViewModel']);
-		</script>
+<script type="text/javascript">
+	require(['SearchViewModel']);
 
-		<form id="headSearch" class="form-inline">
+</script>
 
-		  <div class="control-group">
-		    <label class="control-label"  for="inputEmail">Email</label>
-		    <div class="controls">
-		      <input type="text" data-bind="value:SearchRequest"  class="input-medium search-query"/>
-		    </div>
-		  </div>
+<form id="headSearch" class="form-inline">
 
-		  <div class="control-group">
-		    <label class="control-label" for="inputPassword">Password</label>
-		    <div class="controls">
-		      <select>
-				  <option>1</option>
-				  <option>2</option>
-				  <option>3</option>
-				  <option>4</option>
-				  <option>5</option>
-				</select>
-		    </div>
-		  </div>
+  <div class="control-group">
+    <label class="control-label"  for="inputEmail">Email</label>
+    <div class="controls">
+      <input type="text" data-bind="value:SearchRequest"  class="input-medium search-query"/>
+    </div>
+  </div>
 
-		  <div class="control-group">
-		    <label class="control-label" for="inputPassword">Password</label>
-		    <div class="controls">
-		      <select>
-				  <option>1</option>
-				  <option>2</option>
-				  <option>3</option>
-				  <option>4</option>
-				  <option>5</option>
-				</select>
-		    </div>
-		  </div>
+  <div class="control-group">
+    <label class="control-label" for="inputPassword">Password</label>
+    <div class="controls">
+      <select>
+		  <option>1</option>
+		  <option>2</option>
+		  <option>3</option>
+		  <option>4</option>
+		  <option>5</option>
+		</select>
+    </div>
+  </div>
 
-		  <div class="control-group">
-		    <div class="controls">
-		      <label class="checkbox">
-		        <input type="checkbox"> Remember me
-		      </label>
-		    </div>
-		  </div>
+  <div class="control-group">
+    <label class="control-label" for="inputPassword">Password</label>
+    <div class="controls">
+      <select>
+		  <option>1</option>
+		  <option>2</option>
+		  <option>3</option>
+		  <option>4</option>
+		  <option>5</option>
+		</select>
+    </div>
+  </div>
 
-		  <div class="control-group">
-		    <div class="controls">
-		      <button type="button" data-bind="click:Search" class="btn">Sign in</button>
-		    </div>
-		  </div>
+  <div class="control-group">
+    <div class="controls">
+      <label class="checkbox">
+        <input type="checkbox"> Remember me
+      </label>
+    </div>
+  </div>
 
-		</form>
+  <div class="control-group">
+    <div class="controls">
+      <button type="button" data-bind="click:Search" class="btn">Sign in</button>
+    </div>
+  </div>
 
-		<ul id="results" data-bind="foreach:SearchResults" class="row thumbnails threads-list">
+</form>
 
-      <li class="span2">
+<ul id="results" data-bind="foreach:SearchResults" class="row thumbnails threads-list">
 
-        <div class="thumbnail thread">
-          <div class="book-desc">
-            <div class="desc-img">
-              <img data-bind="attr:{src:Cover}">
-              <div data-bind="text:Description"></div>
-            </div>
-            <div class="details">
-              <em data-bind="text:Format" class="format"></em>
-              <em data-bind="text:FormattedPrice" class="price"></em>
-              <em data-bind="text:ShortTitle" class="titre court" ></em>  
-              <em data-bind="text:VeryShortTitle" class="titre trescourt" ></em>  
-              <em data-bind="text:Title" class="titrecache"></em>
-              <span class="trescourt">par <span data-bind="text:ShortShopName"> </span></span>
-              <span class="court">par <span data-bind="text:ShopName" ></span></span>
-            </div>
-            <!-- <p data-bind="text:Description"></p> -->
-          </div>
+  <li class="span2">
 
+    <div class="thumbnail thread">
+      <div class="book-desc">
+        <div class="desc-img">
+          <img data-bind="attr:{src:Cover}">
+          <div data-bind="text:Description"></div>
         </div>
+        <div class="details">
+          <em data-bind="text:Format" class="format"></em>
+          <em data-bind="text:FormattedPrice" class="price"></em>
+          <em data-bind="text:ShortTitle" class="titre court" ></em>  
+          <em data-bind="text:VeryShortTitle" class="titre trescourt" ></em>  
+          <em data-bind="text:Title" class="titrecache"></em>
+          <span class="trescourt">par <span data-bind="text:ShortShopName"> </span></span>
+          <span class="court">par <span data-bind="text:ShopName" ></span></span>
+        </div>
+        <!-- <p data-bind="text:Description"></p> -->
+      </div>
 
-      </li>
+    </div>
 
-    </ul>
+  </li>
 
-		<!-- AddThis Button BEGIN -->
-		<div class="addthis_toolbox addthis_floating_style addthis_32x32_style" style="right:50px;top:60px;">
-		<a class="addthis_button_preferred_1"></a>
-		<a class="addthis_button_preferred_2"></a>
-		<a class="addthis_button_preferred_3"></a>
-		<a class="addthis_button_preferred_4"></a>
-		<a class="addthis_button_compact"></a>
-		</div>
-		<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-512a1a0f32e05908"></script>
-		<!-- AddThis Button END -->
+</ul>
 
-	
+<!-- AddThis Button BEGIN -->
+<div class="addthis_toolbox addthis_floating_style addthis_32x32_style" style="right:50px;top:90px;">
+<a class="addthis_button_preferred_1"></a>
+<a class="addthis_button_preferred_2"></a>
+<a class="addthis_button_preferred_3"></a>
+<a class="addthis_button_preferred_4"></a>
+<a class="addthis_button_compact"></a>
+</div>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-512a1a0f32e05908"></script>
+<!-- AddThis Button END -->
+

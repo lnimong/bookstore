@@ -17,7 +17,6 @@ app.get('/search', function(request, response) {
 	console.log("new search request");
 	finder.findbooks(function(jsonres) {
 	 	response.writeHead(200, { 'Content-Type': 'application/json' });
-	 	console.log(JSON.stringify(jsonres));
 		response.write(JSON.stringify(jsonres));
 	 	response.end();
 	});
