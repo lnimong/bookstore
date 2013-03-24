@@ -10,9 +10,9 @@ actions.Shell = function(response) {
 	response.render('shell')
 }
 
-actions.Search = function(response) {
+actions.Search = function(db, response) {
 	console.log("new search request");
-	finder.findbooks(function(jsonres) {
+	finder.findbooks(db, function(jsonres) {
 		response.writeHead(200, { 'Content-Type': 'application/json' });
 		response.write(JSON.stringify(jsonres));
 	 	response.end();
