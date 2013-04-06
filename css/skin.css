@@ -134,7 +134,7 @@ body {
 }
 
 #headSearch {
-	padding: 6em 2em 0 2em;
+	padding: 0 2em 0 2em;
 }
 
 #headSearch div{
@@ -143,8 +143,9 @@ body {
 }
 
 #results {
-	padding: 0 130px 0 1em;
+	padding: 0 130px 0 4em;
 	text-align: center;
+
 }
 
 .titrecache {
@@ -160,11 +161,78 @@ body {
 }
 
 input#requestinput {
-	width: 100% !important
+	width: 25% !important
 }
+
+.navbar-inner .brand .yellow {
+	width: 0.5em;
+	background: #ff3;
+	display: inline-block;
+	height: 1.5em;
+}
+
+.navbar-inner .brand .blue {
+	width: 0.5em;
+	background: #33f;
+	display: inline-block;
+	height: 1.5em;
+}
+
+.navbar-inner .brand .red {
+	width: 0.5em;
+	background: #f33;
+	display: inline-block;
+	height: 1.5em;
+}
+
+.navbar-inner .brand .text {
+	font-size: 2em
+}
+
+.headspace {
+	height: 8em;
+}
+
+.control-label {
+	font-size: 1.5em;
+	vertical-align: middle;
+}
+
+.bonus {
+	left: 0;
+	position: fixed;
+	display: inline-block;
+	padding: 1em 0;
+	width: 2.5em;
+	text-align: center;
+	background: rgb(85, 85, 85);
+	color: #fff;
+	vertical-align: middle;
+	font-weight: bold;	
+}
+
+.current.bonus .title {
+	display: none;
+}
+
+.about {
+	top: 180px;
+	height: 160px;
+}
+
+.contact {
+	top : 380px;
+	height: 260px;
+
+}
+
 
 @media (max-width: 979px) and (min-width: 768px) {
 		
+	.navbar-fixed-top {
+		position: fixed;
+	}
+
 	#results {
 		padding: 0 80px 0 1em;
 		text-align: center;
@@ -218,6 +286,10 @@ input#requestinput {
 
 	#headSearch {
 		padding: 1em 2em 0 2em;
+	}
+
+	.headspace {
+		height: 6em;
 	}
 
 

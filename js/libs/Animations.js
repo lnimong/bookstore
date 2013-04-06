@@ -2,6 +2,25 @@ define(['jquery'], function($) {
 
 	return function() {
 
+		$(".bonus").hover(
+			function() {
+				$('.current.bonus').each(function() {
+					$(this).removeClass('current');
+				});
+				$(this).addClass('current');
+				$(this).animate({
+					width:'400px'
+				});
+			},
+			function() {
+				$(this).removeClass('current');
+				$(this).animate({
+					width:'2.5em'
+				});
+
+			}
+		);
+
 		$('.desc-img').hover(
 			function() {
 				$(this).addClass('highlighted');

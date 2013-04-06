@@ -6,7 +6,8 @@
     "express": "2.5.x",
     "ejs": "~0.7.1",
     "mongoskin" : "0.3.6",
-    "request" : "2.16.6" 
+    "request" : "2.16.6",
+    "cheerio" : "0.10.8"
   },
   "engines": {
     "node": "0.8.x",

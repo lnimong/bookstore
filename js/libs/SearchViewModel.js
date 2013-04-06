@@ -27,7 +27,7 @@ define(['knockout', 'Books', 'ManageUI', 'Helpers'], function(ko, FindBooks, ui,
 				easy.forEach(books, function(book) {
 					self.SearchResults.push(book)
 				});
-
+				
 				ui.responseReceived();
 
 			}.bind(this));

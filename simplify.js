@@ -11,15 +11,19 @@ simplify.server = function (express, directories_) {
 	return app;
 };
 
-simplify.webmanager = function(get_) {
+simplify.webmanager = function(get_, $_) {
 	return {
 		page : function(url, callbackOK, callbackNOK) {
 
 			get_(url, function (error, response, body) {
-			    if (!error)
-			        callbackOK (body) ;
-			    else if (callbackNOK)
+			    if (!error) {
+			    	console.log(body);
+			        callbackOK ($_.load(body)) ;
+			    }
+			    else if (callbackNOK) {
+			    	console.log('error on  page '+url);
 			        callbackNOK (error) ;
+			    }
 			});
 		}
 	}

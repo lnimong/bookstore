@@ -3,6 +3,7 @@ var fs = require('fs');
 var mongo = require('mongoskin');
 var url = require('url');
 var requestmodule = require("request");
+var cheerio = require('cheerio');
 
 var actions = require('./actions');
 var simplify = require('./simplify');
@@ -11,7 +12,7 @@ var port = process.env.PORT || 5000;
 var dbConnectionString = process.env.MONGOHQ_URL || 'mongodb://localhost:27017/localdb';
 
 var app = simplify.server(express, ['css', 'js', 'bootstrap']);
-var web = simplify.webmanager(requestmodule);
+var web = simplify.webmanager(requestmodule, cheerio);
 
 app.set('view engine', 'ejs');
 
@@ -22,7 +23,7 @@ app.get('/search', function(request, response) {
 });
 
 app.get('/crawl', function(request, response) {
-	console.log("get books from "+ request.params.shop);
+	console.log("start crawling from "+ request.params.shop);
 	actions.Crawl(web, mongo.db(dbConnectionString), response);
 });
 

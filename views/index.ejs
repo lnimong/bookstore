@@ -1,7 +1,14 @@
 
 <div id="mainnav" class="navbar navbar-fixed-top" >
   <div class="navbar-inner">
-    <a class="brand" data-bind="text:SearchTitle"></a>
+
+    <a class="brand">
+      <span class="yellow"></span>
+      <span class="blue"></span>
+      <span class="red"></span>
+      <span class="text">IKABOO</span>
+    </a>
+
   </div>
 </div>
 
@@ -10,87 +17,56 @@
 
 </script>
 
-<form id="headSearch" class="form-inline">
+<div class="headspace"></div>
 
-  <div class="control-group">
-    <div class="controls">
+
+  <form id="headSearch" class="form-inline">
+
+    <div class="control-group">
+      <div class="controls">
+
+      <label class="control-label" for="requestinput">Je recherche &nbsp;</label>
       <input type="text" id="requestinput" data-bind="value:SearchRequest"  class="input-medium search-query"/>
+      </div>
     </div>
-  </div>
 
-<!--
+  </form>
 
-  <div class="control-group">
-    <label class="control-label" for="inputPassword">Password</label>
-    <div class="controls">
-      <select>
-		  <option>1</option>
-		  <option>2</option>
-		  <option>3</option>
-		  <option>4</option>
-		  <option>5</option>
-		</select>
-    </div>
-  </div>
+  <ul id="results" data-bind="foreach:SearchResults" class="row thumbnails threads-list">
 
-  <div class="control-group">
-    <label class="control-label" for="inputPassword">Password</label>
-    <div class="controls">
-      <select>
-		  <option>1</option>
-		  <option>2</option>
-		  <option>3</option>
-		  <option>4</option>
-		  <option>5</option>
-		</select>
-    </div>
-  </div>
+    <li class="span2">
 
-  <div class="control-group">
-    <div class="controls">
-      <label class="checkbox">
-        <input type="checkbox"> Remember me
-      </label>
-    </div>
-  </div>
-
-  <div class="control-group">
-    <div class="controls">
-      <button type="button" data-bind="click:Search" class="btn">Sign in</button>
-    </div>
-  </div>
-
--->
-
-</form>
-
-<ul id="results" data-bind="foreach:SearchResults" class="row thumbnails threads-list">
-
-  <li class="span2">
-
-    <div class="thumbnail thread">
-      <div class="book-desc">
-        <div class="desc-img">
-          <img data-bind="attr:{src:Cover}">
-          <div data-bind="text:Description"></div>
+      <div class="thumbnail thread">
+        <div class="book-desc">
+          <div class="desc-img">
+            <img data-bind="attr:{src:Cover}">
+            <div data-bind="text:Description"></div>
+          </div>
+          <div class="details">
+            <em data-bind="text:Format" class="format"></em>
+            <em data-bind="text:FormattedPrice" class="price"></em>
+            <em data-bind="text:ShortTitle" class="titre court" ></em>  
+            <em data-bind="text:VeryShortTitle" class="titre trescourt" ></em>  
+            <em data-bind="text:Title" class="titrecache"></em>
+            <span class="trescourt">par <span data-bind="text:ShortShopName"> </span></span>
+            <span class="court">par <span data-bind="text:ShopName" ></span></span>
+          </div>
+          <!-- <p data-bind="text:Description"></p> -->
         </div>
-        <div class="details">
-          <em data-bind="text:Format" class="format"></em>
-          <em data-bind="text:FormattedPrice" class="price"></em>
-          <em data-bind="text:ShortTitle" class="titre court" ></em>  
-          <em data-bind="text:VeryShortTitle" class="titre trescourt" ></em>  
-          <em data-bind="text:Title" class="titrecache"></em>
-          <span class="trescourt">par <span data-bind="text:ShortShopName"> </span></span>
-          <span class="court">par <span data-bind="text:ShopName" ></span></span>
-        </div>
-        <!-- <p data-bind="text:Description"></p> -->
+
       </div>
 
-    </div>
+    </li>
 
-  </li>
+  </ul>
 
-</ul>
+<div class="bonus about">
+  <span class="title">A<br><br>P<br>R<br>O<br>P<br>O<br>S</span>
+</div>
+
+<div class="bonus contact">
+  <span class="title"><br><br><br>C<br>O<br>N<br>T<br>A<br>C<br>T</span>
+</div>
 
 <!-- AddThis Button BEGIN -->
 <div class="addthis_toolbox addthis_floating_style addthis_32x32_style" style="right:50px;top:90px;">

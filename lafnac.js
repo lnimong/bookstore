@@ -1,3 +1,5 @@
+var simplify = require('./simplify');
+
 var lafnac = exports;
 
 var fnac = {
@@ -15,7 +17,7 @@ var teamalexandriz = {
 	Skin: 'teamalexandriz'
 }
 
-
+/*
 var books = [
 	{
 		Title:'The Titre qui est quand meme super long que c\'est genre super chiant', 
@@ -241,9 +243,68 @@ var books = [
 		Price:0,
 		Cover:'http://fakeimg.pl/100x200/'
 	}
-];
+];*/
+
+ 
 
 lafnac.crawl =  function (web, db) {
 
-	db.collection('books').insert(books);
+	var books = [];
+
+	web.page('http://www.amazon.fr/gp/bestsellers/digital-text/695398031/ref=zg_bs_695398031_pg_1?ie=UTF8&pg=2&ajax=1&isAboveTheFold=0',
+		function(html) {
+
+			console.log('returned')
+
+
+
+			html('div.zg_item_compact').map(function() {
+
+
+				var item = html(this);
+				var image = item.find('.zg_itemImage_compact img').attr('src');
+				var title = item.find('.zg_title').text();
+				var price = 0;
+				var pstring = item.find('.price').text().split(' ');
+				if(pstring.length === 2) {
+					price = parseFloat(pstring[1].replace(',','.'));
+				}
+				
+				console.log('found '+ title);
+
+				db.collection('books').insert({
+					Title:title, 
+					Shop:fnac, 
+					Format:'kindle',
+					Description:'aucune description disponible',
+					Price:price,
+					Cover:image
+				});
+			});
+
+		}
+	);
+
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

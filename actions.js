@@ -14,7 +14,7 @@ actions.Shell = function(response) {
 };
 
 actions.Search = function(db, response) {
-	console.log("new search request");
+	console.log("LNI SEARCH REQUEST : ");
 
 	finder.findbooks(db, function(jsonres) {
 		response.writeHead(200, { 'Content-Type': 'application/json' });
@@ -34,6 +34,7 @@ actions.Crawl = function(web, db, response) {
 
 	clean.books(db);
 	simplify.forEach(crawlers, function(crawler) {
+		console.log('crawler');
 		crawler.crawl(web, db);
 	});
 
@@ -44,11 +45,6 @@ actions.Crawl = function(web, db, response) {
 
 actions.SearchOnTheWeb = function (web, db, response) {
 
-	web.page('http://www.google.com', function(html) {
-	 	response.writeHead(200, { 'Content-Type': 'text/html' });
-	 	response.write(html);
-	 	response.end();
-	});
 
 	console.log("new search request");
 
