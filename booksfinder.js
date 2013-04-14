@@ -244,12 +244,12 @@ var books = [
 
 
 finder.findbooks = function (db, callback) {
-	console.log(books.length + ' books found');
-	callback(books);
-	/*db.collection('books').find().toArray(function(err, books) {
+	//console.log(books.length + ' books found');
+	//callback(books);
+	db.collection('books').find().toArray(function(err, books) {
 		if (err) throw err;		
 		callback(books);
-	}); */
+	}); 
 }
 
 
