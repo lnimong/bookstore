@@ -59,6 +59,7 @@ app.get('/crawl/:source/:page', function(request, response) {
 
 			response.write('chaine de connection : ' + dbConnectionString);
 			response.write('\n');
+			console.log('INSERTION !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
 			var insertResult = db.collection('books').insert(books);
 			response.write('\n');
 			response.write("retour de l'insertion : " + insertResult);
