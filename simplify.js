@@ -17,7 +17,7 @@ simplify.webmanager = function(get_, $_) {
 
 			get_(url, function (error, response, body) {
 			    if (!error) {
-			    	console.log(body);
+			    	//console.log(body);
 			        callbackOK ( { 
 			        	dom : $_.load(body),
 			        	text : body

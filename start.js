@@ -57,8 +57,14 @@ app.get('/crawl/:source/:page', function(request, response) {
 			});
 			//response.write(request.params.source);
 
-			db.collection('books').insert(books);
+			response.write('chaine de connection : ' + dbConnectionString);
+			response.write('\n');
+			var insertResult = db.collection('books').insert(books);
+			response.write('\n');
+			response.write("retour de l'insertion : " + insertResult);
+			response.write('\n');
 			response.write(JSON.stringify(books));
+			response.write('\n');
 			response.end();
 		}
 	);
