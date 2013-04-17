@@ -26,6 +26,7 @@ app.get('/crawl/:source/:page', function(request, response) {
 
 	var db = mongo.db(dbConnectionString);
 
+	/*
 	web.page(
 		"http://www.amazon.fr/gp/bestsellers/digital-text/695398031/ref=zg_bs_695398031_pg_1?ie=UTF8&pg=2&ajax=1&isAboveTheFold=0", 
 		function(html){
@@ -57,18 +58,23 @@ app.get('/crawl/:source/:page', function(request, response) {
 			});
 			//response.write(request.params.source);
 
-			response.write('chaine de connection : ' + dbConnectionString);
-			response.write('\n');
-			console.log('INSERTION !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
-			var insertResult = db.collection('books').insert(books);
-			response.write('\n');
-			response.write("retour de l'insertion : " + insertResult);
-			response.write('\n');
-			response.write(JSON.stringify(books));
-			response.write('\n');
-			response.end();
+			try {
+				response.write('chaine de connection : ' + dbConnectionString);
+				response.write('\n');
+				console.log('INSERTION !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
+				var insertResult = db.collection('books').insert(books);
+				response.write('\n');
+				response.write("retour de l'insertion : " + insertResult);
+				response.write('\n');
+				response.write(JSON.stringify(books));
+				response.write('\n');
+				response.end();
+			} catch(erreur){
+				console.log('ERREUR !!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
+			}
 		}
 	);
+	*/
 });
 
 app.get('/', function(request, response) {
