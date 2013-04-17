@@ -24,9 +24,10 @@ app.get('/search', function(request, response) {
 
 app.get('/crawl/:source/:page', function(request, response) {
 
+	/*
 	var db = mongo.db(dbConnectionString);
 
-	/*
+
 	web.page(
 		"http://www.amazon.fr/gp/bestsellers/digital-text/695398031/ref=zg_bs_695398031_pg_1?ie=UTF8&pg=2&ajax=1&isAboveTheFold=0", 
 		function(html){
