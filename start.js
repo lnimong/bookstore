@@ -23,6 +23,8 @@ app.get('/search', function(request, response) {
 });
 
 app.get('/crawl/:source/:page', function(request, response) {
+			response.writeHead(200, { 'Content-Type': 'application/json' });
+				response.end();
 
 	/*
 	var db = mongo.db(dbConnectionString);
