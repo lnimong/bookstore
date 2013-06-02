@@ -1,5 +1,8 @@
 define(['knockout', 'Books', 'ManageUI', 'Helpers'], function(ko, FindBooks, ui, easy){
 
+	var formatRequest =  function(requestToFormat) {
+		return easy.isDefined(requestToFormat) && requestToFormat !== '' ? '1' + requestToFormat : '0' ;
+	}
 
 	var SearchViewModel = function () {
 		var self = this;
@@ -18,9 +21,9 @@ define(['knockout', 'Books', 'ManageUI', 'Helpers'], function(ko, FindBooks, ui,
 			ui.sendingRequest();
 
 			FindBooks({
-				request: this.SearchRequest,
-				category: this.SearchCategory,
-				type: this.SearchType
+				request: formatRequest(this.SearchRequest()),
+				category: this.SearchCategory(),
+				type: this.SearchType()
 			}, function(books) {
 				self.SearchResults.removeAll();
 				
@@ -44,6 +47,7 @@ define(['knockout', 'Books', 'ManageUI', 'Helpers'], function(ko, FindBooks, ui,
 	easy.forEach(ui.htmlElts(), function(elt) {
 		ko.applyBindings(viewmodel, elt)
 	});
+	
 	viewmodel.Search();
 	
 })

@@ -36,3 +36,8 @@ simplify.forEach = function (array, action) {
 	for(var i = 0; i <  array.length; ++i)
 		action(array[i],i);
 }
+
+simplify.log = function (message) {
+	console.log('IKABOO ************************************************************************************');
+	console.log(message);
+}

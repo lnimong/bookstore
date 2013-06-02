@@ -17,21 +17,43 @@ var web = simplify.webmanager(requestmodule, cheerio);
 app.set('view engine', 'ejs');
 
 app.get('/search', function(request, response) {
-	console.log("new search request, connection to "+dbConnectionString);
-	actions.Search(mongo.db(dbConnectionString), response); 
-	//actions.SearchOnTheWeb(web, mongo.db(dbConnectionString), response); 
+	simplify.log("new search request, connection to "+dbConnectionString);
+
+	var query = url.parse(request.url, true).query;
+	
+	searchstring = query['q'];
+
+	simplify.log(request.url);
+	simplify.log(query);
+	simplify.log(searchstring);
+
+	if(searchstring.substring(0, 1) === '1')
+		searchstring = searchstring.substring(1).trim();
+	else
+		searchstring = null;
+
+	actions.Search(searchstring, mongo.db(dbConnectionString), response); 
 });
 
+var amazonPage = "http://www.amazon.fr/gp/bestsellers/digital-text/695398031/ref=zg_bs_695398031_pg_1?ie=UTF8&pg=<page>&ajax=1&isAboveTheFold=0";
+
 app.get('/crawl/:source/:page', function(request, response) {
-			response.writeHead(200, { 'Content-Type': 'application/json' });
-				response.end();
 
-	/*
 	var db = mongo.db(dbConnectionString);
+	var page = '';
+
+	if(request.params.source === 'amazon') {
+		page = amazonPage.replace('<page>', request.params.page);
+	}
+	if(request.params.source === 'db' && request.params.page === 'clear') {
+		db.collection('books').remove({});
+		return;
+	}
 
 
+	if(page !== '')
 	web.page(
-		"http://www.amazon.fr/gp/bestsellers/digital-text/695398031/ref=zg_bs_695398031_pg_1?ie=UTF8&pg=2&ajax=1&isAboveTheFold=0", 
+		page, 
 		function(html){
 			response.writeHead(200, { 'Content-Type': 'application/json' });
 
@@ -59,25 +81,21 @@ app.get('/crawl/:source/:page', function(request, response) {
 				});
 
 			});
-			//response.write(request.params.source);
 
 			try {
 				response.write('chaine de connection : ' + dbConnectionString);
-				response.write('\n');
-				console.log('INSERTION !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
-				var insertResult = db.collection('books').insert(books);
-				response.write('\n');
-				response.write("retour de l'insertion : " + insertResult);
-				response.write('\n');
+				response.write('nombre de livres a ajouter : ' + books.length);
+				db.collection('books').insert(books);
 				response.write(JSON.stringify(books));
-				response.write('\n');
 				response.end();
+				return;
 			} catch(erreur){
-				console.log('ERREUR !!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
+				response.write('chaine de connection : ' + dbConnectionString);
+				response.write('une erreur est survenune\n' + erreur);
+				response.end();
 			}
 		}
 	);
-	*/
 });
 
 app.get('/', function(request, response) {

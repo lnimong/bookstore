@@ -16,7 +16,7 @@ define(['knockout', 'Ajax', 'Helpers'], function(ko, ajax, easy) {
 		}, self);
 		self.ShortTitle = ko.computed(function() {
 			var title = this.Title();
-			return title.length > 18 ? jQuery.trim(title).substring(0, 16) + '...' : title;
+			return title.length > 18 ? jQuery.trim(title).substring(0, 14) + '...' : title;
 		}, self);
 		self.ShortShopName = ko.computed(function() {
 			var shop = this.ShopName();
@@ -24,14 +24,14 @@ define(['knockout', 'Ajax', 'Helpers'], function(ko, ajax, easy) {
 		}, self);
 		self.VeryShortTitle = ko.computed(function() {
 			var title = this.Title();
-			return title.length > 14 ? jQuery.trim(title).substring(0, 10) + '...' : title;
+			return title.length > 14 ? jQuery.trim(title).substring(0, 18) + '...' : title;
 		}, self);
 
 	};
 
 
 	return function(request, callback) {
-		ajax('search', null, function(books){
+		ajax('search?q='+encodeURIComponent(request.request), null, function(books){
 			var booksViewModel = [];
 			easy.forEach(books, function(book){
 				booksViewModel.push(new Book(book));

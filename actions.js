@@ -13,10 +13,8 @@ actions.Shell = function(response) {
 	response.render('shell')
 };
 
-actions.Search = function(db, response) {
-	console.log("LNI SEARCH REQUEST : ");
-
-	finder.findbooks(db, function(jsonres) {
+actions.Search = function(text, db, response) {
+	finder.findbooks(text, db, function(jsonres) {
 		response.writeHead(200, { 'Content-Type': 'application/json' });
 		response.write(JSON.stringify(jsonres));
 	 	response.end();
@@ -37,7 +35,33 @@ actions.Crawl = function(web, db, response) {
 		console.log('crawler');
 		crawler.crawl(web, db);
 	});
+	$('zg_itemImmersion').each(function(){
 
+    	var item = $(this);
+
+		var image = item.find('.zg_image img').attr('src');
+		var title = item.find('.zg_title').text();
+		var price = 0;
+		var pstring = item.find('.price').text().split(' ');
+		if(pstring.length === 2) {
+			price = parseFloat(pstring[1].replace(',','.'));
+		}
+
+		var newbook = {
+			Title:title, 
+			Shop: {
+				Name: 'Amazon',
+				Skin: 'amazon'
+			},
+			Format:'kindle',
+			Description:'aucune description disponible',
+			Price:price,
+			Cover:image
+		};
+
+		books.push(newbook);
+
+    });
  	response.writeHead(200, { 'Content-Type': 'text/plain' });
  	response.write("crawl ok");
  	response.end();

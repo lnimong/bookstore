@@ -243,13 +243,20 @@ var books = [
 ];
 
 
-finder.findbooks = function (db, callback) {
-	//console.log(books.length + ' books found');
-	//callback(books);
-	db.collection('books').find().toArray(function(err, books) {
-		if (err) throw err;		
-		callback(books);
-	}); 
+finder.findbooks = function (text, db, callback) {
+
+	if(text !== null) {
+		db.collection('books').find({Title :{ $regex: '/*'+text+'/*', $options: 'i' } }).toArray(function(err, books) {
+			if (err) throw err;		
+			callback(books);
+		});
+	} 
+	else { 
+		db.collection('books').find().toArray(function(err, books) {
+			if (err) throw err;		
+			callback(books);
+		});
+	}
 }
 
 

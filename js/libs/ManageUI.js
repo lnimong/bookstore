@@ -11,7 +11,7 @@ define(['jquery', 'Animations'], function($, animate) {
 
 		htmlElts : function() {
 			return [ 
-				//$('#headSearch')[0], 
+				$('#headSearch')[0], 
 				$('#results')[0], 
 				$('.navbar-inner')[0] ];
 		},

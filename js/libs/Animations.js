@@ -36,6 +36,7 @@ define(['jquery'], function($) {
 				}, function() {
 					$(this).removeClass('highlighted');
 				});
+				$(this).removeClass('highlighted');
 			}
 		);
 
